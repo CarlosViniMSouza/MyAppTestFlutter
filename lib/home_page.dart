@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapplicationtest/app_controller.dart';
 
 class HomePg extends StatefulWidget {
   @override
@@ -16,18 +17,12 @@ class HomePgState extends State<HomePg> {
       appBar: AppBar(
         title: Text('Pagina Principal'),
       ),
-      body: Container(
-        height: 200,
-        width: 200,
-        color: Colors.greenAccent,
-        child: Align(
-          alignment: Alignment.center,
-          child: Container(
-          height: 100,
-          width: 100,
-          color: Colors.yellowAccent,
-          ),
-        ),
+      body: Center(
+        child: Switch(
+            value: AppController.instace.isDartTheme,
+            onChanged: (value) {
+              AppController.instace.changeTheme();
+            }),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
