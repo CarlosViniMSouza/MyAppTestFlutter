@@ -16,16 +16,19 @@ class HomePgState extends State<HomePg> {
       appBar: AppBar(
         title: Text('Pagina Principal'),
       ),
-      body: Center(child: GestureDetector(
-        child: Text('Clique Aqui: $counter Vezes',
-        style: TextStyle(fontSize: 25)),
-        onTap: () {
-          setState(() {
-            counter++;
-            print(counter);
-          });
-        },
-      )),
+      body: Container(
+        height: 200,
+        width: 200,
+        color: Colors.greenAccent,
+        child: Align(
+          alignment: Alignment.center,
+          child: Container(
+          height: 100,
+          width: 100,
+          color: Colors.yellowAccent,
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
