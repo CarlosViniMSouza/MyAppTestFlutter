@@ -16,13 +16,41 @@ class HomePgState extends State<HomePg> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Pagina Principal'),
+        actions: [
+          CustomSwitcher(),
+        ],
       ),
-      body: Center(
-        child: Switch(
-            value: AppController.instace.isDartTheme,
-            onChanged: (value) {
-              AppController.instace.changeTheme();
-            }),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Contando: $counter'),
+            CustomSwitcher(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.black,
+                ),
+                Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.black,
+                ),
+                Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.black,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
@@ -36,3 +64,17 @@ class HomePgState extends State<HomePg> {
     );
   }
 }
+
+class CustomSwitcher extends StatelessWidget {
+  const CustomSwitcher({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Switch(
+        value: AppController.instace.isDartTheme,
+        onChanged: (value) {
+          AppController.instace.changeTheme();
+    });
+  }
+}
+
